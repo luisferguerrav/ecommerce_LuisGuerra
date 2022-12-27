@@ -1,0 +1,43 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+}
+.container{
+    display: flex;
+    background-color: gray;
+    justify-content: space-between;
+    align-items: center;
+    height: 85px;
+    padding: 5px 10%;
+}
+ .nombre{
+   color: white;
+
+}
+.boton{
+    position: relative;
+    left: 250px;
+    background-color:  #181e8c;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    padding: 10px 22px;
+    font-size: 15px;
+    font-weight: bold;
+    position: relative;
+    border-radius: 12px;
+    margin-left: 10px;
+    
+
+}
+.image{
+    width: auto;
+    height: 50px;
+    cursor: pointer;
+}  
+.cart{
+    background: rgba(5, 7, 12, 0.15);
+    border-radius: 8px;
+}
