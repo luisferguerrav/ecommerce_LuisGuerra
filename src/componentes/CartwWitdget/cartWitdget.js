@@ -1,4 +1,4 @@
-// import "./cartWitdget.css"
+
 const CartWidget = () =>{
     return (
         <div className="cart">
