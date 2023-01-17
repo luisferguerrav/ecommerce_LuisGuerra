@@ -19,8 +19,8 @@
 .boton{
     position: relative;
     left: 250px;
-    background-color:  #181e8c;
-    color: #fff;
+    background-color:#181e8c;
+    color: white;
     cursor: pointer;
     border: none;
     padding: 10px 22px;
@@ -29,9 +29,16 @@
     position: relative;
     border-radius: 12px;
     margin-left: 10px;
+    transition-duration: 0.4s;
     
 
 }
+.boton:hover {
+    background-color: #ffa626; 
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+
 .image{
     width: auto;
     height: 50px;
