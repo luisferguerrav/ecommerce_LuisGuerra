@@ -1,7 +1,7 @@
 import { useState } from "react"
 import ItemCount from "../ItemCount/ItemCount"
 import { Link } from "react-router-dom"
-const ItemDetail = ({id,name,price,img,category,stock,description}) =>{
+const ItemDetail = ({id,name,price,img,category,stock,description, }) =>{
     const[quantity, setQuantity] = useState()
     const handleOnAdd = (qty) =>{
         console.log(`se agregaron ${qty} ${name} con el id ${id}`)
