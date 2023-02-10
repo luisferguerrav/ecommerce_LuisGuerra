@@ -6,10 +6,10 @@
 .img_list{
     width: 200px;
 }
-.buton{
+.buton2{
     
     left: 250px;
-    background-color:#024959;
+    background-color: #024959;
     color: white;
     cursor: pointer;
     border: none;
@@ -21,8 +21,8 @@
     
 
 }
-.buton:hover {
-    background-color: #F2C12E; 
+.buton2:hover {
+    background-color: red; 
     color: white;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   }

@@ -6,7 +6,7 @@
 }
 .container{
     display: flex;
-    background-color: gray;
+    background-color: #024959;
     justify-content: space-between;
     align-items: center;
     height: 85px;
@@ -14,12 +14,12 @@
 }
  .nombre{
    color: white;
-
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .boton{
     position: relative;
     left: 250px;
-    background-color:#181e8c;
+    background-color:#593E25;
     color: white;
     cursor: pointer;
     border: none;
@@ -34,7 +34,7 @@
 
 }
 .boton:hover {
-    background-color: #ffa626; 
+    background-color: #F2C12E; 
     color: white;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   }

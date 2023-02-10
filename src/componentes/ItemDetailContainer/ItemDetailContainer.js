@@ -1,7 +1,9 @@
 import { useState ,useEffect } from "react"
 import { useParams } from "react-router-dom"
-import { getProductById } from "../../asyncMock"
+
 import ItemDetail from "../ItemDetail/ItemDetail"
+import { getDoc, doc } from "firebase/firestore"
+import { db } from "../../services/firebase/firebaseConfig"
 
 
 const ItemDetailContainer = () =>{
@@ -9,12 +11,16 @@ const ItemDetailContainer = () =>{
     const {productId} = useParams()
 
     useEffect (() =>{
-        getProductById(productId)
-        .then(product =>{
-            setproduct(product)
-        }).catch(error =>{
-            console.log(error);
-        })
+        (async()=>{
+            
+            const productRef = doc(db, "products", productId)
+            getDoc(productRef)
+            const snapshot = await getDoc(productRef)
+            const fields = snapshot.data()
+            const productAdapted = {id: snapshot.id,...fields }
+
+            setproduct(productAdapted)
+        })()
 
     },[productId])
     

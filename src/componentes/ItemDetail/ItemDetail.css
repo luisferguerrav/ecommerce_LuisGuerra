@@ -1,0 +1,42 @@
+.uwu{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+  }
+  .uwu_cart{
+    margin: 20px;
+    padding: 2rem;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: #A1A2A6;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+    cursor: default;
+   
+  }
+
+.Info {
+    font-size: 12px;
+    
+}
+
+.buton2{
+    
+    left: 250px;
+    background-color: #024959;
+    color: white;
+    cursor: pointer;
+    border: none;
+    padding: 10px 22px;
+    font-size: 10px;
+    font-weight: bold;
+    border-radius: 12px;
+    transition-duration: 0.4s;
+    
+
+}
+.buton2:hover {
+    background-color: red; 
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+

@@ -1,38 +1,64 @@
-import "./ItemListContainer.css"
-import { getProducts, getProductsByCategory } from "../../asyncMock"
-import { useEffect, useState } from "react"
-import ItemList from "../ItemList/ItemList"
-import { useParams } from "react-router-dom"
-// import ItemCount from "../ItemCount/ItemCount"
+  import "./ItemListContainer.css"
+
+  import { useEffect, useState } from "react"
+  import ItemList from "../ItemList/ItemList"
+  import { useParams } from "react-router-dom"
+  import { getDocs,  collection, query,where } from "firebase/firestore"
+  import { db } from "../../services/firebase/firebaseConfig"
 
 
-const ItemListContainer = ({greeting}) => {
+  const ItemListContainer = ({greeting}) => {
 
-    const [products, setProducts] = useState([])
+      const [products, setProducts] = useState([])
+       const [loading, setLoading] = useState(true)
+    
 
-    const {categoryId} = useParams() 
+      const {categoryId} = useParams() 
 
-    useEffect(() =>{
+      useEffect(() => {
+          document.title = "todos los productos"
+      },[])
 
-        const asyncFunction = categoryId ? getProductsByCategory : getProducts
+      useEffect(() =>{
+           (async() =>{
+               
+               const productsRef = categoryId
+               ? query(collection(db, "products"), where('category', '==', categoryId))
+               :collection(db, "products")
+              
+               try{
+                   const snapshot =  await getDocs(productsRef)
+                  
+                   const productsAdapted = snapshot.docs.map(doc =>{
+                      const fields = doc.data()
+                       return{ id: doc.id, ...fields}
+                    })
+                    
+                     console.log("hola")
+                   setProducts (productsAdapted)
 
-        asyncFunction(categoryId)
-        .then(products => {
-            setProducts(products)
-        })
-        .catch(error =>{
-            console.log(error);
-        })
-    },[categoryId])
+               }catch(error){
+                   console.log(error);
+               } finally {
+                    setLoading(false)
+               }
+               })()
 
-    return (
-     <div>
+
+      },[categoryId])
+
+      if(loading) {
+           return <h1>Cargando...</h1>
+       }
+
+
+      return (
+       <div>
        
-        <h1 className="titulo ">{greeting} </h1>
-        <ItemList products={products}></ItemList>
+       <h1 className="titulo">{categoryId ? `Las opciones para ti en:  ${categoryId}`: 'Estos son todos nuestros productos'}</h1>
+         <ItemList products={products}></ItemList>
         
-        {/* <ItemCount></ItemCount> */}
-     </div>
-    )
-}
-export default ItemListContainer
+       </div>
+      )
+  }
+  export default ItemListContainer
